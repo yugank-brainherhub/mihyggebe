@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Provider Supports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact type</th>
+      <th>Active</th>
+      <th>User</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @provider_supports.each do |provider_support| %>
+      <tr>
+        <td><%= provider_support.name %></td>
+        <td><%= provider_support.contact_type %></td>
+        <td><%= provider_support.active %></td>
+        <td><%= provider_support.user_id %></td>
+        <td><%= provider_support.phone_number %></td>
+        <td><%= provider_support.email %></td>
+        <td><%= link_to 'Show', provider_support %></td>
+        <td><%= link_to 'Edit', edit_provider_support_path(provider_support) %></td>
+        <td><%= link_to 'Destroy', provider_support, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provider Support', new_provider_support_path %>

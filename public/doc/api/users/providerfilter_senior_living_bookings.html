@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Users API</h1>
+
+      <div class="article">
+        <h2>Provider:Filter senior living bookings</h2>
+        <h3>GET /api/users/:id/bookings</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjI1LCJleHAiOjE1ODU3MzkwODB9.smsa6h2K-oFfuL1NA-xAVm-N6S0BMib1mMobR05YGjw
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /api/users/1225/bookings?category=senior_living</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">category: senior_living</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;f5191e43fe652508d24f188c07229c44&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: d66b6f9b-3ea3-4e6a-b6d7-11192454f81a
+X-Runtime: 0.026635
+Vary: Origin
+Content-Length: 758</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">[
+  {
+    &quot;id&quot;: 268,
+    &quot;first_name&quot;: &quot;user1008&quot;,
+    &quot;last_name&quot;: &quot;user1008&quot;,
+    &quot;email&quot;: &quot;useremail1008@gmail.com&quot;,
+    &quot;mobile&quot;: &quot;9190000008&quot;,
+    &quot;checkin&quot;: &quot;2020-04-01T00:00:00.000Z&quot;,
+    &quot;checkout&quot;: &quot;2020-04-02T00:00:00.000Z&quot;,
+    &quot;no_of_guests&quot;: null,
+    &quot;doc_received&quot;: null,
+    &quot;arrival_time&quot;: null,
+    &quot;bookingID&quot;: &quot;10268&quot;,
+    &quot;status&quot;: null,
+    &quot;price_includes&quot;: &quot;laundry, WIFI, TV&quot;,
+    &quot;price_per_bed&quot;: 0.0,
+    &quot;booked_by&quot;: {
+      &quot;id&quot;: 1225,
+      &quot;first_name&quot;: &quot;testuser&quot;,
+      &quot;last_name&quot;: &quot;testlastname&quot;,
+      &quot;email&quot;: &quot;email67test@gmail.com&quot;,
+      &quot;mobile&quot;: &quot;100-000-00067&quot;
+    },
+    &quot;care_details&quot;: {
+      &quot;id&quot;: 955,
+      &quot;name&quot;: &quot;seniorliving name&quot;,
+      &quot;address1&quot;: &quot;address49&quot;,
+      &quot;address2&quot;: &quot;address49&quot;,
+      &quot;state&quot;: &quot;state&quot;,
+      &quot;category&quot;: &quot;senior_living&quot;,
+      &quot;approx_distance&quot;: 0.0,
+      &quot;map_url&quot;: &quot;&quot;,
+      &quot;room_type&quot;: &quot;for-three&quot;,
+      &quot;bed_type&quot;: [
+        &quot;king&quot;,
+        &quot;king&quot;
+      ],
+      &quot;no_of_beds&quot;: 2
+    },
+    &quot;booking_for&quot;: {
+      &quot;id&quot;: 206,
+      &quot;name&quot;: &quot;Brother&quot;
+    }
+  }
+]</pre>
+      </div>
+    </div>
+  </body>
+</html>

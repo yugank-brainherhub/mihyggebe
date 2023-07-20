@@ -1,0 +1,143 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+en:
+  hello: "Hello world"
+  user:
+    login_success: "%{name} logged in successfully"
+    password_error: "Invalid password"
+    empty_email: 'Email and Password cannot be blank'
+    not_found: "User not found with %{email}"
+    email_verified: "Your email has been confirmed, Please sign in to continue."
+    not_exist: "Sorry. User does not exist"
+    confirm_email: "Registration mail sent to your registered mail, Please verify to continue."
+    name_error: 'no special characters and numbers, only letters'
+    update_success: 'updated successfully'
+    not_confirmed: 'Please confirm your email before login'
+    invalid_care: 'care id is not valid'
+    care_error: 'Care cannot be added to wishlist. Care is not active'
+    docusign: 'Docusign status has been changed to completed'
+  email: 
+    sent: 'Sent reset password instructions to your email'
+  password:
+    not_matched: 'password & password confirmation should match'
+    invalid_password: 'incorrect login password'
+    link_expired: 'Link not valid or expired. Try generating a new link.'
+    success: 'Password was successfully reset.'
+  token:
+    not_found: 'token not present or invalid token'
+  care:
+    name_error: 'no special characters, only letters, dot and spaces'
+    save_fail: "Unable to update care status"
+    saved: "Successfully changed the status"
+    not_valid: 'Care in admin queue, cannot be updated till admin take action'
+    query_absent: 'location, category, service_id, checkin and checkout params are mandatory'
+    care_room_error: "Remove room in room details tab before changing room count"
+    care_bed_error: "Remove bed in room details tab before modifying total no of beds"
+    care_service_error: "cannot modify service, it's linked to bed, please remove bed before modifying"
+  room:
+    invalid_beds: "Beds added are more than allowed for selected room type"
+    room_not_allowed: 'Room count is more than the total rooms allowed in care'
+    invalid_date: "Can't be less than today's date"
+    out_range: "can't find any rooms for given dates"
+    booking_unavailable: "booking is currently unavailable"
+    room_service_error: "Can't remove existing room services when room has active bookings"
+    bed_error: "Can't edit existing beds when room has active bookings"
+    invalid_available_to: "Can't be reduce the availability period when room has active bookings"
+    invalid_available_from: "Can't change the available_from when room has active bookings"
+    invalid_price_includes: "Can't edit price or price includes when room has active bookings"
+    not_allowed: 'Booking cannot happen for this care'
+  bed:
+    beds_not_allowed: 'Beds count is more than the total beds allowed in care'
+    blocked: "Beds are blocked successfully for 10 minutes"
+  asset:
+    create_error: 'Only one video and one image are allowed'
+    already_uploaded_error: 'First time, only one image and one video can uploaded. Please try update'
+    invalid_files: "files added are exceeded the maximum limit(only one video and 10 images are allowed for care/room)"
+    sort_error: "Sort value can't be more than 10 for images"
+    blank_error: "Atleast select one file"
+    invalid_sort: "sort number can't be repeated"
+  stripe:
+    card_fail: 'could not generate token for card'
+    plan_fail: 'could not create plan'
+    subscription_fail: 'failed to subscribe'
+    customer_fail: 'failed to create Stripe_customer due to invalid token'
+    card_update_fail: 'failed to update card details'
+    plan_retrieve_fail: 'failed to fetch all plans'
+    coupon_fail: 'failed to create coupon.'
+    coupon_retrieve_fail: 'failed to fetch all coupons'
+    payment_fail: 'payment failed please change card'
+    unsubscribe_fail: 'failed to unsubscribe'
+    admin_error: 'Provider rejected successfully, no refund initiated as no subscription available'
+    no_bed: 'could,t find plans for nil beds'
+    month_expire: 'Cancellation period is expired.'
+    bank_added: 'bank details added successfully'
+    docusign_fail: 'document not signed'
+    state_absent: 'Couldnt create subscription. cares have unpermitted state values'
+    bank_missing: 'provider account id is missing to transfer money'
+  docusign:
+    error: "Unable to reach docusign as of now. Please try later"
+  newsletter:
+    success: 'Email added successfully.'
+    error: 'Email already added to newsletter.'
+  booking:
+    checkout_error: "Can't be less than today's date and checkin date"
+    invalid_status: 'invalid status. valid status are pending, accepted, rejected and terminated'
+    cancel_not_allowed: 'Cancellation is not allowed'
+  activerecord:
+    errors:
+      models:
+        care:
+          attributes:
+            category:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+            status: 
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+        licence:
+          attributes:
+            licence_type:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+        room:
+          attributes:
+            room_type:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+            bathroom_type:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+        bed:
+          attributes:
+            bed_type:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+        booking:
+          attributes:
+            status:
+              invalid_enum: "can't be %{value}. Valid values are: %{valid_values}"
+            bed_bookings:
+              blank: "add atleast one bed to create booking"
+ 

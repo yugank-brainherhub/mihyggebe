@@ -1,0 +1,10 @@
+.col-sm-3
+  &nbsp;
+.col-sm-6
+  %h2.text-center Signin
+
+  = simple_form_for User.new, url: '/admin/sessions' do |form|
+    = form.input :email, input_html:  { name: 'email' }
+    = form.input :password, input_html:  { name: 'password' }
+    %p= link_to 'Forgot password?', new_admin_password_path
+    = form.button :submit, value: 'Login'

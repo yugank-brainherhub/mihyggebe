@@ -1,0 +1,14 @@
+if (#{@care.user.approved? && @care.user.accountId.present? }) {
+$('#care_edit_form').html("#{j(render 'admin/cares/form')}");
+$('#careModal').modal('show')
+}
+else if (#{!@care.user.approved?})
+{
+$('#care_edit_form').html("#{j(render 'admin/cares/cancel')}");
+$('#cancelModal').modal('show')
+}
+else if (#{!@care.user.accountId.present? && !@care.active?})
+{
+$('#care_edit_form').html("#{j(render 'admin/cares/bankdetails')}");
+$('#bankdetailsModal').modal('show')
+}

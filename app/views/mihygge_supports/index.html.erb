@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mihygge Supports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Support type</th>
+      <th>Description</th>
+      <th>File 1</th>
+      <th>User</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Support number</th>
+      <th>Is provider</th>
+      <th>Provider</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mihygge_supports.each do |mihygge_support| %>
+      <tr>
+        <td><%= mihygge_support.support_type %></td>
+        <td><%= mihygge_support.description %></td>
+        <td><%= mihygge_support.file_1 %></td>
+        <td><%= mihygge_support.user_id %></td>
+        <td><%= mihygge_support.email %></td>
+        <td><%= mihygge_support.phone_number %></td>
+        <td><%= mihygge_support.first_name %></td>
+        <td><%= mihygge_support.last_name %></td>
+        <td><%= mihygge_support.support_number %></td>
+        <td><%= mihygge_support.is_provider %></td>
+        <td><%= mihygge_support.provider_id %></td>
+        <td><%= link_to 'Show', mihygge_support %></td>
+        <td><%= link_to 'Edit', edit_mihygge_support_path(mihygge_support) %></td>
+        <td><%= link_to 'Destroy', mihygge_support, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mihygge Support', new_mihygge_support_path %>

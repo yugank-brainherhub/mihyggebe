@@ -1,0 +1,102 @@
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bookingID %>
+    <%= form.text_field :bookingID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_includes %>
+    <%= form.text_area :price_includes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_per_bed %>
+    <%= form.text_field :price_per_bed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other_relation %>
+    <%= form.text_field :other_relation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cancelled_at %>
+    <%= form.datetime_select :cancelled_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkin %>
+    <%= form.datetime_select :checkin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkout %>
+    <%= form.datetime_select :checkout %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arrival_time %>
+    <%= form.datetime_select :arrival_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_of_guests %>
+    <%= form.number_field :no_of_guests %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doc_received %>
+    <%= form.check_box :doc_received %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :care_id %>
+    <%= form.text_field :care_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

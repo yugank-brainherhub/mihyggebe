@@ -1,0 +1,2 @@
+class MihyggeSupport < ApplicationRecord
+end

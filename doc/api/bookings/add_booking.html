@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookings API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bookings API</h1>
+
+      <div class="article">
+        <h2>Add booking</h2>
+        <h3>POST /api/bookings</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMjY2LCJleHAiOjE1ODUzMTQxMjd9.SxDkvTkjCdy8QMIe7aQ8q_niEVT0_UP4Ch6cikT28v8
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /api/bookings</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">booking[first_name]=John&booking[last_name]=james&booking[email]=johnjames%40gmail.com&booking[mobile]=12434934580&booking[checkin]=2020-03-28&booking[checkout]=2020-03-30&booking[arrival_time]=2+pm&booking[care_id]=2428&booking[user_id]=3266&booking[relationship_id]=609&booking[no_of_guests]=2&booking[price_includes]=laundry%2C+WIFI%2C+TV&booking[bed_bookings_attributes][0][bed_id]=956&booking[bed_bookings_attributes][1][bed_id]=957</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;97acb810b8af1db148dd62ded0c82134&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 0bba1b20-abd2-4420-81c2-1bf1560abe12
+X-Runtime: 0.073837
+Vary: Origin
+Content-Length: 692</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: 689,
+  &quot;first_name&quot;: &quot;John&quot;,
+  &quot;last_name&quot;: &quot;james&quot;,
+  &quot;email&quot;: &quot;johnjames@gmail.com&quot;,
+  &quot;mobile&quot;: &quot;12434934580&quot;,
+  &quot;checkin&quot;: &quot;2020-03-28T00:00:00.000Z&quot;,
+  &quot;checkout&quot;: &quot;2020-03-30T00:00:00.000Z&quot;,
+  &quot;no_of_guests&quot;: 2,
+  &quot;doc_received&quot;: null,
+  &quot;arrival_time&quot;: &quot;2020-03-27T14:00:00.000Z&quot;,
+  &quot;bookingID&quot;: &quot;10689&quot;,
+  &quot;status&quot;: &quot;draft&quot;,
+  &quot;price_includes&quot;: null,
+  &quot;booked_by&quot;: {
+    &quot;id&quot;: 3266,
+    &quot;first_name&quot;: &quot;testuser&quot;,
+    &quot;last_name&quot;: &quot;testlastname&quot;,
+    &quot;email&quot;: &quot;email12test@gmail.com&quot;,
+    &quot;mobile&quot;: &quot;100-000-00012&quot;
+  },
+  &quot;care_details&quot;: {
+    &quot;id&quot;: 2428,
+    &quot;name&quot;: &quot;seniorliving name&quot;,
+    &quot;address1&quot;: &quot;address12&quot;,
+    &quot;address2&quot;: &quot;address12&quot;,
+    &quot;state&quot;: &quot;state&quot;,
+    &quot;category&quot;: &quot;senior_living&quot;,
+    &quot;approx_distance&quot;: 0.0,
+    &quot;map_url&quot;: &quot;&quot;,
+    &quot;room_type&quot;: &quot;for-three&quot;
+  },
+  &quot;booking_for&quot;: {
+    &quot;id&quot;: 609,
+    &quot;name&quot;: &quot;Brother&quot;
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

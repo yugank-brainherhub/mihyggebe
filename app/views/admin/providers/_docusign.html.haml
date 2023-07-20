@@ -1,0 +1,6 @@
+- if provider.docusign_status == 'Pending'
+  = link_to "Update Status", update_docusign_admin_provider_path(provider), class: 'btn btn-primary', remote: true 
+- elsif provider.docusign_status.nil?
+  N/A
+- else
+  Completed

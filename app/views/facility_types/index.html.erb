@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Facility Types</h1>
+
+<table class="responsive nowrap table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facility_types.each do |facility_type| %>
+      <tr>
+        <td><%= facility_type.name %></td>
+        <td><%= link_to 'Show', facility_type %></td>
+        <td><%= link_to 'Edit', edit_facility_type_path(facility_type) %></td>
+        <td><%= link_to 'Destroy', facility_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility Type', new_facility_type_path %>

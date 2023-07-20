@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bookings</h1>
+
+<table class="responsive nowrap table table-hover">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>User</th>
+      <th>Bookingid</th>
+      <th>Price includes</th>
+      <th>Price per bed</th>
+      <th>Other relation</th>
+      <th>Cancelled at</th>
+      <th>Checkin</th>
+      <th>Checkout</th>
+      <th>Arrival time</th>
+      <th>No of guests</th>
+      <th>Doc received</th>
+      <th>Status</th>
+      <th>Care</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.first_name %></td>
+        <td><%= booking.last_name %></td>
+        <td><%= booking.email %></td>
+        <td><%= booking.mobile %></td>
+        <td><%= booking.user_id %></td>
+        <td><%= booking.bookingID %></td>
+        <td><%= booking.price_includes %></td>
+        <td><%= booking.price_per_bed %></td>
+        <td><%= booking.other_relation %></td>
+        <td><%= booking.cancelled_at %></td>
+        <td><%= booking.checkin %></td>
+        <td><%= booking.checkout %></td>
+        <td><%= booking.arrival_time %></td>
+        <td><%= booking.no_of_guests %></td>
+        <td><%= booking.doc_received %></td>
+        <td><%= booking.status %></td>
+        <td><%= booking.care_id %></td>
+        <td><%= link_to 'Show', booking %></td>
+        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>

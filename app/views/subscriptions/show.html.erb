@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @subscription.user_id %>
+</p>
+
+<p>
+  <strong>Subscriptionid:</strong>
+  <%= @subscription.subscriptionId %>
+</p>
+
+<p>
+  <strong>Planid:</strong>
+  <%= @subscription.planId %>
+</p>
+
+<p>
+  <strong>Care:</strong>
+  <%= @subscription.care_id %>
+</p>
+
+<p>
+  <strong>Payment intent:</strong>
+  <%= @subscription.payment_intent %>
+</p>
+
+<p>
+  <strong>Subscribed at:</strong>
+  <%= @subscription.subscribed_at %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @subscription.status %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

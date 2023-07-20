@@ -1,0 +1,47 @@
+<%= form_with(model: provider_support, local: true) do |form| %>
+  <% if provider_support.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(provider_support.errors.count, "error") %> prohibited this provider_support from being saved:</h2>
+
+      <ul>
+      <% provider_support.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_type %>
+    <%= form.text_field :contact_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

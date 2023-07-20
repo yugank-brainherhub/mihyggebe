@@ -1,0 +1,2 @@
+# The authentication token for the application.
+authentication: <%= Rails.application.credentials[Rails.env.to_sym][:skylight_key] %>

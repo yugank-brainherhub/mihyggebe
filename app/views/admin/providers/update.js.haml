@@ -1,0 +1,4 @@
+$("#provider_#{@provider.id}").html("#{j(render 'admin/providers/provider', provider: @provider)}")
+$("#providerModal").modal('hide')
+$("#flash").html("#{j(render 'shared/flash')}")
+window.setTimeout(function(){location.reload()},2000)

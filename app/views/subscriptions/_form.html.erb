@@ -1,0 +1,52 @@
+<%= form_with(model: subscription, local: true) do |form| %>
+  <% if subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subscriptionId %>
+    <%= form.text_field :subscriptionId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :planId %>
+    <%= form.text_field :planId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :care_id %>
+    <%= form.number_field :care_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_intent %>
+    <%= form.text_field :payment_intent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subscribed_at %>
+    <%= form.datetime_select :subscribed_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

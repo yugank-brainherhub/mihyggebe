@@ -1,0 +1,2 @@
+class ProviderSupport < ApplicationRecord
+end

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @provider_support.name %>
+</p>
+
+<p>
+  <strong>Contact type:</strong>
+  <%= @provider_support.contact_type %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @provider_support.active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @provider_support.user_id %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @provider_support.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @provider_support.email %>
+</p>
+
+<%= link_to 'Edit', edit_provider_support_path(@provider_support) %> |
+<%= link_to 'Back', provider_supports_path %>

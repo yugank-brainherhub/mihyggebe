@@ -1,0 +1,52 @@
+#provider_edit_form
+.col-sm-12
+  %table.table.table-bordered.text-nowrap.table-responsive#provider_listing
+    %thead
+      %tr
+        %th Created Date
+        %th Email
+        %th Name
+        %th Mobile
+        %th Checkr Status
+        %th Docusign Status
+        %th Status
+        %th Change Status
+        %th Bank Details
+        %th Payouts Enabled
+    %tbody
+      - @providers.each do |provider|
+        %tr
+          %td= provider.created_date
+          %td= provider.email
+          %td= [provider.first_name, provider.last_name].compact.join(' ')
+          %td= provider.mobile
+          %td= provider.checkr_status.partition('_').last&.capitalize
+          %td{id: "docusign_#{provider.id}"}
+            = render 'admin/providers/docusign', provider: provider
+
+          %td{id: "provider_#{provider.id}"}
+            = render 'admin/providers/provider', provider: provider
+          %td{id: "user_#{provider.id}"}
+            = render 'admin/providers/user', provider: provider
+          %td
+            - if provider.accountId.present?  
+              %span.badge.badge-info Available
+            - else
+              %span.badge.badge-warning Not Available
+          %td 
+            - if provider.payouts_enabled 
+              %span.badge.badge-info Enabled 
+            - else 
+              %span.badge.badge-warning Disabled
+  
+
+:javascript
+  $(document).ready(function() {
+    $("#provider_listing").dataTable({
+      bInfo: false,
+      order: [[ 0, 'desc' ]],
+      aoColumnDefs: [
+        { bSortable: false, aTargets: [3, 4, 5, 6, 7, 8, 9] }
+      ]
+    });
+  });

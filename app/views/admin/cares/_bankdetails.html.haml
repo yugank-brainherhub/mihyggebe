@@ -1,0 +1,12 @@
+#bankdetailsModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title bank details status
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        Provider should add bank details before this action to happen.
+      .modal-footer
+        = link_to "Send reminder", send_bankdetails_mail_admin_provider_path(@care.user), class: 'btn btn-primary', "data-dismiss" => "modal", remote: true 
+

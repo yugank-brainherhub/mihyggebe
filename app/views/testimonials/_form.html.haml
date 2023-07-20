@@ -1,0 +1,15 @@
+-# frozen_string_literal: true
+= simple_form_for(@testimonial) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :location
+    = f.input :testimonial_type, collection: ["Provider", "Customer"], prompt: "Select Type"
+    = f.input :gender, collection: ["Male", "Female", "Neutral"], prompt: "Select Gender"
+    = f.input :publish
+
+  .form-actions
+    = f.button :submit

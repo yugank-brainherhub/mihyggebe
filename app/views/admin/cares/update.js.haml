@@ -1,0 +1,4 @@
+$("#careModal").modal('hide')
+$("#care_#{@care.id}").html("#{j(render 'admin/cares/care', care: @care)}")
+$("#flash").html("#{j(render 'shared/flash')}")
+window.setTimeout(function(){location.reload()},2000)

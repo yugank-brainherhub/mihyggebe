@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @podcast.title
+%p
+  %b Description:
+  = @podcast.description
+%p
+  %b Artwork image:
+  = @podcast.artwork_image
+%p
+  %b Publish:
+  = @podcast.publish
+
+= link_to 'Edit', edit_podcast_path(@podcast)
+\|
+= link_to 'Back', podcasts_path

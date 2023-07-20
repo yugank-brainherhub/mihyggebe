@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @booking.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @booking.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @booking.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @booking.mobile %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @booking.user_id %>
+</p>
+
+<p>
+  <strong>Bookingid:</strong>
+  <%= @booking.bookingID %>
+</p>
+
+<p>
+  <strong>Price includes:</strong>
+  <%= @booking.price_includes %>
+</p>
+
+<p>
+  <strong>Price per bed:</strong>
+  <%= @booking.price_per_bed %>
+</p>
+
+<p>
+  <strong>Other relation:</strong>
+  <%= @booking.other_relation %>
+</p>
+
+<p>
+  <strong>Cancelled at:</strong>
+  <%= @booking.cancelled_at %>
+</p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @booking.checkin %>
+</p>
+
+<p>
+  <strong>Checkout:</strong>
+  <%= @booking.checkout %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @booking.arrival_time %>
+</p>
+
+<p>
+  <strong>No of guests:</strong>
+  <%= @booking.no_of_guests %>
+</p>
+
+<p>
+  <strong>Doc received:</strong>
+  <%= @booking.doc_received %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @booking.status %>
+</p>
+
+<p>
+  <strong>Care:</strong>
+  <%= @booking.care_id %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

@@ -1,0 +1,5 @@
+- if provider.pending?
+	= link_to "Update Status", edit_admin_provider_path(provider), class: 'btn btn-primary', remote: true 
+- else
+	- text = provider.approved? ? "Approved" : "Rejected"
+	= link_to "#{text}", admin_provider_comments_path(provider), remote: true

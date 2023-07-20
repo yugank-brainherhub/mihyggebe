@@ -1,0 +1,112 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :role_id %>
+    <%= form.text_field :role_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :messenger %>
+    <%= form.text_field :messenger %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stripeID %>
+    <%= form.text_field :stripeID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :above18 %>
+    <%= form.check_box :above18 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organization %>
+    <%= form.text_field :organization %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profession %>
+    <%= form.text_field :profession %>
+  </div>
+
+  <div class="field">
+    <%= form.label :docusign_status %>
+    <%= form.text_field :docusign_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checker_paid_date %>
+    <%= form.date_select :checker_paid_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checker_future_payment %>
+    <%= form.date_select :checker_future_payment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkr_status %>
+    <%= form.number_field :checkr_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accountId %>
+    <%= form.text_field :accountId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checkrId %>
+    <%= form.text_field :checkrId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :invitation_status %>
+    <%= form.text_field :invitation_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

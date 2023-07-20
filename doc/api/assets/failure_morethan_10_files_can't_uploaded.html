@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assets API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Assets API</h1>
+
+      <div class="article">
+        <h2>FAILURE: Morethan 10 files can&#39;t uploaded</h2>
+        <h3>POST /api/assets</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMjYwLCJleHAiOjE1ODUzMTQxMjZ9.PU5M0PDw1KAiS0CZPYydeHo6Rekntj5iJPnzWRzztfE
+Host: example.org
+Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /api/assets</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assetable_type"
+
+care
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assetable_id"
+
+2422
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="type"
+
+update
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[0][file]"; filename="download.jpeg"
+Content-Type: image/jpeg
+Content-Length: 4630
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[0][sort]"
+
+2
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[1][id]"
+
+947
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[1][file]"; filename="test.jpg"
+Content-Type: image/jpeg
+Content-Length: 4364
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[1][sort]"
+
+3
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[2][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[2][sort]"
+
+4
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[3][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[3][sort]"
+
+5
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[4][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[4][sort]"
+
+6
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[5][file]"; filename="download.jpeg"
+Content-Type: image/jpeg
+Content-Length: 4630
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[5][sort]"
+
+7
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[6][id]"
+
+947
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[6][file]"; filename="test.jpg"
+Content-Type: image/jpeg
+Content-Length: 4364
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[6][sort]"
+
+8
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[7][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[7][sort]"
+
+9
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[8][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[8][sort]"
+
+10
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[9][file]"; filename="check.png"
+Content-Type: image/png
+Content-Length: 962826
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="assets[9][sort]"
+
+12
+------------XnJLe9ZIbbGUYtzPQJ16u1--</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;3b094ec0198c01f9b0fcce043849a902&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: be7dbaa7-cdb1-4e45-8cfa-2592b2b83283
+X-Runtime: 0.584440
+Vary: Origin
+Content-Length: 1084</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;files_created&quot;: [
+    {
+      &quot;id&quot;: 948,
+      &quot;asset_type&quot;: &quot;image/jpeg&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 2
+    },
+    {
+      &quot;id&quot;: 947,
+      &quot;asset_type&quot;: &quot;image/jpeg&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 3
+    },
+    {
+      &quot;id&quot;: 949,
+      &quot;asset_type&quot;: &quot;image/png&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 4
+    },
+    {
+      &quot;id&quot;: 950,
+      &quot;asset_type&quot;: &quot;image/png&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 5
+    },
+    {
+      &quot;id&quot;: 951,
+      &quot;asset_type&quot;: &quot;image/png&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 6
+    },
+    {
+      &quot;id&quot;: 952,
+      &quot;asset_type&quot;: &quot;image/jpeg&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 7
+    },
+    {
+      &quot;id&quot;: 947,
+      &quot;asset_type&quot;: &quot;image/jpeg&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 8
+    },
+    {
+      &quot;id&quot;: 953,
+      &quot;asset_type&quot;: &quot;image/png&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 9
+    },
+    {
+      &quot;id&quot;: 954,
+      &quot;asset_type&quot;: &quot;image/png&quot;,
+      &quot;assetable_id&quot;: 2422,
+      &quot;assetable_type&quot;: &quot;Care&quot;,
+      &quot;file_url&quot;: null,
+      &quot;sort&quot;: 10
+    }
+  ],
+  &quot;files_failed&quot;: [
+    [
+      {
+        &quot;id&quot;: null,
+        &quot;name&quot;: &quot;check.png&quot;,
+        &quot;errors&quot;: {
+          &quot;sort&quot;: [
+            &quot;Sort value can&#39;t be morethan 10 for images&quot;
+          ]
+        }
+      }
+    ]
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

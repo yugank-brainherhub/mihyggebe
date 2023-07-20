@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3.exactCenter
+      %h2.text-center Reset Password
+      = form_for @user, :url => admin_password_path(params[:id]), :html => {:class => "form-inline"} do |f|
+        - if @user.errors.any?
+          .error_messages
+            %h2 Form is invalid
+            %ul
+              - for message in @user.errors.full_messages
+                %li= message
+        .form-group
+          = f.label :fpassword, "Password:"
+          = f.text_field :password, class: "form-control"
+        .form-group
+          = f.label :fpassword_confirmation, "Password_confirmation:"
+          = f.text_field :password_confirmation, class: "form-control"
+        = f.submit "Submit", class: "btn btn-default btn-primary"

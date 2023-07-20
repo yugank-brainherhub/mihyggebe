@@ -1,0 +1,11 @@
+%p
+  Hello #{@user.email}
+%p Someone has requested a link to change your password. You can do this through the link below.
+- if @is_admin
+  %p
+    %a{:href => "<haml_loud"} edit_admin_password_url(id: @token) &gt;Reset my password
+- else
+  %p
+    %a{:href => "<haml_loud"} edit_password_url(token: @token) &gt;Change my password
+%p If you didn't request this, please ignore this email.
+%p Your password won't change until you access the link above and create a new one.

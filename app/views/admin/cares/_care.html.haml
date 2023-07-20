@@ -1,0 +1,7 @@
+- if care.active?
+	%span.badge.badge-success Approved
+- elsif care.rejected?
+	%span.badge.badge-danger Rejected
+- else
+	= link_to "Update Status", edit_admin_care_path(care), class: 'btn btn-primary', 
+		remote: true, style: "font-size:12px;"

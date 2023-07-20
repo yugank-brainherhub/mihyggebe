@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cares API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>cares API</h1>
+
+      <div class="article">
+        <h2>Update care profile&amp;licence details- success</h2>
+        <h3>PUT /api/cares/:id</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMjc5LCJleHAiOjE1ODUzMTQxMjl9.ZjB3qJAl2wb2hZWxNQa0kyAkv6BZJvXcvTPy2NwDomM
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">PUT /api/cares/2444</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">care[name]=testcare&care[address1]=room+no+123%2C+xyz+apartment&care[address2]=2nd+cross+road+%2C+pqr+estate&care[address3]=Bangalore%2C+5678093&care[state]=Karnataka&care[county]=Bangalore&care[country]=India&care[zipcode]=456789&care[fax_number]=123485990&care[category]=home_share&care[licences_attributes][0][id]=3553&care[licences_attributes][0][licence_type]=regular&care[licences_attributes][1][id]=3554&care[licences_attributes][1][_destroy]=true</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;5596d84b2a4d345e90e49ca00fbb1559&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: e8e6e898-a0ca-458e-ad64-064287116b7e
+X-Runtime: 0.025030
+Vary: Origin
+Content-Length: 574</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: 2444,
+  &quot;name&quot;: &quot;testcare&quot;,
+  &quot;address1&quot;: &quot;room no 123, xyz apartment&quot;,
+  &quot;address2&quot;: &quot;2nd cross road , pqr estate&quot;,
+  &quot;address3&quot;: &quot;Bangalore, 5678093&quot;,
+  &quot;fax_number&quot;: &quot;123485990&quot;,
+  &quot;zipcode&quot;: &quot;456789&quot;,
+  &quot;county&quot;: &quot;Bangalore&quot;,
+  &quot;country&quot;: &quot;India&quot;,
+  &quot;state&quot;: &quot;Karnataka&quot;,
+  &quot;board_members&quot;: &quot;xyz, pqr, rty&quot;,
+  &quot;category&quot;: &quot;home_share&quot;,
+  &quot;status&quot;: &quot;pending&quot;,
+  &quot;user_id&quot;: 3279,
+  &quot;map_url&quot;: &quot;&quot;,
+  &quot;licences&quot;: [
+    {
+      &quot;id&quot;: 3553,
+      &quot;licence_type&quot;: &quot;regular&quot;,
+      &quot;name&quot;: null,
+      &quot;file_url&quot;: null
+    }
+  ],
+  &quot;staff_details&quot;: null,
+  &quot;care_details&quot;: null,
+  &quot;selected_rooms&quot;: null,
+  &quot;files&quot;: null,
+  &quot;selected_services&quot;: null,
+  &quot;selected_facilities&quot;: null,
+  &quot;room_details&quot;: null
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>

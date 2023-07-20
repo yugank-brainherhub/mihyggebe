@@ -1,0 +1,20 @@
+#careModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    = simple_form_for @care, url: admin_care_path(@care), remote: true do |f|
+      .modal-content
+        .modal-header
+          %h5#exampleModalLabel.modal-title Care Status
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          = f.simple_fields_for @comment do |c|
+            = c.input :description, as: :text, placeholder: 'Enter comment (optional)'
+
+        .modal-footer
+          - if !@care.active? && !@care.rejected?
+            = f.button :submit, value: 'Reject', class: 'btn btn-danger'
+            = f.button :submit, value: 'Approve', class: 'btn btn-primary'
+          - if @care.active?
+            = f.button :submit, value: 'Reject', class: 'btn btn-danger'
+          - if @care.rejected?
+            = f.button :submit, value: 'Approve', class: 'btn btn-primary'

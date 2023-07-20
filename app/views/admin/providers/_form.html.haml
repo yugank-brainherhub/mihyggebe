@@ -1,0 +1,20 @@
+#providerModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    = simple_form_for @provider, url: admin_provider_path(@provider), remote: true do |f|
+      .modal-content
+        .modal-header
+          %h5#exampleModalLabel.modal-title Provider Status
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+        .modal-body
+          = f.simple_fields_for @comment do |c|
+            = c.input :description, as: :text, placeholder: 'Enter comment (optional)'
+
+        .modal-footer
+          - if !@provider.approved? && !@provider.rejected?
+            = f.button :submit, value: 'Approve', class: 'btn btn-primary'
+            = f.button :submit, value: 'Reject', class: 'btn btn-danger'
+          - if @provider.approved?
+            = f.button :submit, value: 'Reject', class: 'btn btn-danger'
+          - if @provider.rejected?
+            = f.button :submit, value: 'Approve', class: 'btn btn-primary'

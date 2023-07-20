@@ -1,0 +1,2 @@
+module MihyggeSupportsHelper
+end

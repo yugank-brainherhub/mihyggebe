@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @user.role_id %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>Messenger:</strong>
+  <%= @user.messenger %>
+</p>
+
+<p>
+  <strong>Stripeid:</strong>
+  <%= @user.stripeID %>
+</p>
+
+<p>
+  <strong>Above18:</strong>
+  <%= @user.above18 %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @user.organization %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Profession:</strong>
+  <%= @user.profession %>
+</p>
+
+<p>
+  <strong>Docusign status:</strong>
+  <%= @user.docusign_status %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user.status %>
+</p>
+
+<p>
+  <strong>Checker paid date:</strong>
+  <%= @user.checker_paid_date %>
+</p>
+
+<p>
+  <strong>Checker future payment:</strong>
+  <%= @user.checker_future_payment %>
+</p>
+
+<p>
+  <strong>Checkr status:</strong>
+  <%= @user.checkr_status %>
+</p>
+
+<p>
+  <strong>Accountid:</strong>
+  <%= @user.accountId %>
+</p>
+
+<p>
+  <strong>Checkrid:</strong>
+  <%= @user.checkrId %>
+</p>
+
+<p>
+  <strong>Invitation status:</strong>
+  <%= @user.invitation_status %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

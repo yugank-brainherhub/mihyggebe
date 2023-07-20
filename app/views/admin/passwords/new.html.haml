@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3.exactCenter
+      %h2.text-center Forgot Password
+      = form_tag '/admin/passwords', method: 'post', :class => 'form-inline' do |form|
+        .form-group
+          = label_tag 'email', 'Email'
+          = text_field_tag :email, params[:email], class: 'form-control', autofocus: true, placeholder: 'email', required: true
+        %br/
+        %br/
+        = submit_tag "Reset Password", class: 'btn btn-default btn-lg btn-submit'

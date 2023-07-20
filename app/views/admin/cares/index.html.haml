@@ -1,0 +1,77 @@
+#care_edit_form
+
+= simple_form_for :care, url: admin_cares_path, method: :get, wrapper: :horizontal_form do |f|
+  .form-row
+    .col-sm-3
+      = f.input :category, as: :select, 
+        collection: [[], ['Home Share', '0'], ['Senior Living', '1']], required: false, 
+        selected: params.dig(:care, :category)
+    .col-sm-3
+      = f.input :status, as: :select, 
+        collection: [[], ['Approve', '1'], ['Reject', '2']], required: false,
+        label: 'Checkr Status', input_html: { name: 'care[checkr_status]' }, 
+        selected: params.dig(:care, :checkr_status)
+    .col-sm-3
+      = f.input :status, as: :select, 
+        collection: [[], ['Approve', '3'], ['Reject', '4']], required: false,
+        selected: params.dig(:care, :status)
+    .col-sm-3
+      = f.submit :submit, value: 'Search', class: 'btn btn-primary'
+
+-if @cares.any?
+  .col-sm-12
+    %table.table.table-bordered.text-nowrap.table-responsive#cares_listing
+      %thead
+        %tr
+          %th Created Date
+          %th Name
+          %th Provider Name
+          %th Phone Number
+          %th Care Type
+          %th Location
+          %th License 
+          %th No. of beds
+          %th Provider Status
+          %th Update Status
+          %th Change Status
+      %tbody
+        - @cares.each do |care|
+          %tr
+            %td= care.created_date
+            %td= care.name
+            %td= care.user.first_name
+            %td= care.user.mobile
+            %td= care.category.to_s.humanize
+            %td
+              - if care.map_url.present?
+                = link_to "map", care.map_url, target: "_blank"
+              - else
+                N/A
+            %td
+              - if care.licences.any?
+                = link_to "View Licences", licences_admin_care_path(care), remote: true
+              - else
+                = "No Licences"
+            %td= care.care_detail&.no_of_beds
+            %td
+              %span.badge.badge-info= care.user.status
+            %th{id: "care_#{care.id}"}
+              = render 'admin/cares/care', care: care
+            %th{id: "carestatus_#{care.id}"}
+              = render 'admin/cares/status', care: care
+
+- else
+  .alert.alert-info
+    No Cares are available for the search criteria
+
+
+:javascript
+  $(document).ready(function() {
+    $("#cares_listing").dataTable({
+      bInfo: false,
+      order: [[ 0, 'desc' ]],
+      aoColumnDefs: [
+        { bSortable: false, aTargets: [3,4,5, 6, 8, 9, 10] }
+      ]
+    });
+  });

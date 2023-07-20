@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Users API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Users API</h1>
+
+      <div class="article">
+        <h2>Provider: Filter home share bookings</h2>
+        <h3>GET /api/users/:id/bookings</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMjI2LCJleHAiOjE1ODU3MzkwODB9.JuhBkAXMGwXZQR9stfwEjCH0xkq-9zGUlHfjN5IiFDA
+Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /api/users/1226/bookings?category=home_share</pre>
+
+            <h4>Query Parameters</h4>
+            <pre class="request query_parameters highlight">category: home_share</pre>
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;8ce08eca88fcecf23da0be8cfcf539cc&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 350d2729-eca7-4b33-8e10-8eb66c319c37
+X-Runtime: 0.016603
+Vary: Origin
+Content-Length: 752</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">[
+  {
+    &quot;id&quot;: 269,
+    &quot;first_name&quot;: &quot;user1009&quot;,
+    &quot;last_name&quot;: &quot;user1009&quot;,
+    &quot;email&quot;: &quot;useremail1009@gmail.com&quot;,
+    &quot;mobile&quot;: &quot;9190000009&quot;,
+    &quot;checkin&quot;: &quot;2020-04-01T00:00:00.000Z&quot;,
+    &quot;checkout&quot;: &quot;2020-04-02T00:00:00.000Z&quot;,
+    &quot;no_of_guests&quot;: null,
+    &quot;doc_received&quot;: null,
+    &quot;arrival_time&quot;: null,
+    &quot;bookingID&quot;: &quot;10269&quot;,
+    &quot;status&quot;: null,
+    &quot;price_includes&quot;: &quot;laundry, WIFI, TV&quot;,
+    &quot;price_per_bed&quot;: 0.0,
+    &quot;booked_by&quot;: {
+      &quot;id&quot;: 1226,
+      &quot;first_name&quot;: &quot;testuser&quot;,
+      &quot;last_name&quot;: &quot;testlastname&quot;,
+      &quot;email&quot;: &quot;email68test@gmail.com&quot;,
+      &quot;mobile&quot;: &quot;100-000-00068&quot;
+    },
+    &quot;care_details&quot;: {
+      &quot;id&quot;: 958,
+      &quot;name&quot;: &quot;homeshare name&quot;,
+      &quot;address1&quot;: &quot;address52&quot;,
+      &quot;address2&quot;: &quot;address52&quot;,
+      &quot;state&quot;: &quot;state&quot;,
+      &quot;category&quot;: &quot;home_share&quot;,
+      &quot;approx_distance&quot;: 0.0,
+      &quot;map_url&quot;: &quot;&quot;,
+      &quot;room_type&quot;: &quot;for-three&quot;,
+      &quot;bed_type&quot;: [
+        &quot;king&quot;,
+        &quot;king&quot;
+      ],
+      &quot;no_of_beds&quot;: 2
+    },
+    &quot;booking_for&quot;: {
+      &quot;id&quot;: 207,
+      &quot;name&quot;: &quot;Brother&quot;
+    }
+  }
+]</pre>
+      </div>
+    </div>
+  </body>
+</html>

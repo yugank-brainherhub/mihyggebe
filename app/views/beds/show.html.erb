@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bed number:</strong>
+  <%= @bed.bed_number %>
+</p>
+
+<p>
+  <strong>Bed type:</strong>
+  <%= @bed.bed_type %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @bed.room_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @bed.service_id %>
+</p>
+
+<%= link_to 'Edit', edit_bed_path(@bed) %> |
+<%= link_to 'Back', beds_path %>

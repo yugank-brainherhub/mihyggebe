@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookings API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bookings API</h1>
+
+      <div class="article">
+        <h2>Add booking</h2>
+        <h3>POST /api/bookings</h3>
+
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">first_name</span>
+                </td>
+                <td>
+                  <span class="description">first name of customer</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">last_name</span>
+                </td>
+                <td>
+                  <span class="description">last name  of customer</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">email</span>
+                </td>
+                <td>
+                  <span class="description">email of customer</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">mobile</span>
+                </td>
+                <td>
+                  <span class="description">mobile number of customer</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">checkin</span>
+                </td>
+                <td>
+                  <span class="description">checkin date of booking, can not be less than today</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">checkout</span>
+                </td>
+                <td>
+                  <span class="description">checkout date of booking, can not be less than today and checkin</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">arrival_time</span>
+                </td>
+                <td>
+                  <span class="description">arrival time of booking</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">care_id</span>
+                </td>
+                <td>
+                  <span class="description">care id of care for which booking is created</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">user_id</span>
+                </td>
+                <td>
+                  <span class="description">id of user who is creating booking</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">relationship_id</span>
+                </td>
+                <td>
+                  <span class="description">get relationship ids from relationships api</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">no_of_guests</span>
+                </td>
+                <td>
+                  <span class="description">number of guests</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">bed_bookings_attributes</span>
+                </td>
+                <td>
+                  <span class="description">bed ids for which booking is created</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMTY4LCJleHAiOjE1ODU3MzkwNjd9.Vle2p4TReJ1yDa3u45P8Usnk__NzPtb3iZdlG8V5s3o
+Host: example.org
+Content-Type: application/x-www-form-urlencoded
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">POST /api/bookings</pre>
+
+
+            <h4>Body</h4>
+            <pre class="request body">booking[first_name]=John&booking[last_name]=james&booking[email]=johnjames%40gmail.com&booking[mobile]=12434934580&booking[checkin]=2020-04-02&booking[checkout]=2020-04-04&booking[arrival_time]=2+pm&booking[care_id]=916&booking[user_id]=1168&booking[relationship_id]=198&booking[no_of_guests]=2&booking[price_includes]=laundry%2C+WIFI%2C+TV&booking[bed_bookings_attributes][0][bed_id]=419&booking[bed_bookings_attributes][1][bed_id]=420</pre>
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;c9b7908b1543e74cf1a9b90b78640c5a&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 1bad90a6-d1b5-4e3d-ada6-893b2d39d213
+X-Runtime: 0.133349
+Vary: Origin
+Content-Length: 754</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: 260,
+  &quot;first_name&quot;: &quot;John&quot;,
+  &quot;last_name&quot;: &quot;james&quot;,
+  &quot;email&quot;: &quot;johnjames@gmail.com&quot;,
+  &quot;mobile&quot;: &quot;12434934580&quot;,
+  &quot;checkin&quot;: &quot;2020-04-02T00:00:00.000Z&quot;,
+  &quot;checkout&quot;: &quot;2020-04-04T00:00:00.000Z&quot;,
+  &quot;no_of_guests&quot;: 2,
+  &quot;doc_received&quot;: null,
+  &quot;arrival_time&quot;: &quot;2020-04-01T14:00:00.000Z&quot;,
+  &quot;bookingID&quot;: &quot;10260&quot;,
+  &quot;status&quot;: &quot;draft&quot;,
+  &quot;price_includes&quot;: null,
+  &quot;price_per_bed&quot;: 60.0,
+  &quot;booked_by&quot;: {
+    &quot;id&quot;: 1168,
+    &quot;first_name&quot;: &quot;testuser&quot;,
+    &quot;last_name&quot;: &quot;testlastname&quot;,
+    &quot;email&quot;: &quot;email12test@gmail.com&quot;,
+    &quot;mobile&quot;: &quot;100-000-00012&quot;
+  },
+  &quot;care_details&quot;: {
+    &quot;id&quot;: 916,
+    &quot;name&quot;: &quot;seniorliving name&quot;,
+    &quot;address1&quot;: &quot;address12&quot;,
+    &quot;address2&quot;: &quot;address12&quot;,
+    &quot;state&quot;: &quot;state&quot;,
+    &quot;category&quot;: &quot;senior_living&quot;,
+    &quot;approx_distance&quot;: 0.0,
+    &quot;map_url&quot;: &quot;&quot;,
+    &quot;room_type&quot;: &quot;for-three&quot;,
+    &quot;bed_type&quot;: [
+      &quot;king&quot;,
+      &quot;king&quot;
+    ],
+    &quot;no_of_beds&quot;: 2
+  },
+  &quot;booking_for&quot;: {
+    &quot;id&quot;: 198,
+    &quot;name&quot;: &quot;Brother&quot;
+  }
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>
